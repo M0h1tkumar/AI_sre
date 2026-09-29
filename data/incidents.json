@@ -1,0 +1,235 @@
+[
+  {
+    "id": "INC-2041",
+    "service": "checkout-api",
+    "severity": "SEV1",
+    "summary": "p99 latency > 4s, Redis evicted_keys spiking, 500 errors",
+    "timestamp": "2026-07-06T10:20:45.966146",
+    "root_cause": "Redis maxmemory too low after traffic growth",
+    "fix_steps": [
+      "Raised maxmemory 2GB->4GB",
+      "Set allkeys-lru"
+    ],
+    "outcome": "worked",
+    "minutes_to_resolve": 14
+  },
+  {
+    "id": "INC-2042",
+    "service": "checkout-api",
+    "severity": "SEV1",
+    "summary": "p99 latency > 4s, Redis evicted_keys spiking, 500 errors",
+    "timestamp": "2026-07-08T10:20:45.966146",
+    "root_cause": "Redis maxmemory too low after traffic growth",
+    "fix_steps": [
+      "Raised maxmemory 2GB->4GB",
+      "Set allkeys-lru"
+    ],
+    "outcome": "worked",
+    "minutes_to_resolve": 14
+  },
+  {
+    "id": "INC-2043",
+    "service": "checkout-api",
+    "severity": "SEV1",
+    "summary": "p99 latency > 4s, Redis evicted_keys spiking, 500 errors",
+    "timestamp": "2026-07-03T10:20:45.966146",
+    "root_cause": "Redis maxmemory too low after traffic growth",
+    "fix_steps": [
+      "Raised maxmemory 2GB->4GB",
+      "Set allkeys-lru"
+    ],
+    "outcome": "worked",
+    "minutes_to_resolve": 14
+  },
+  {
+    "id": "INC-1987",
+    "service": "user-service",
+    "severity": "SEV2",
+    "summary": "DB connection timeouts, max_connections reached",
+    "timestamp": "2026-07-22T10:20:45.966146",
+    "root_cause": "Connection pool leak in the auth middleware",
+    "fix_steps": [
+      "Restarted user-service pods",
+      "Patched middleware to close idle connections"
+    ],
+    "outcome": "worked",
+    "minutes_to_resolve": 25
+  },
+  {
+    "id": "INC-1988",
+    "service": "user-service",
+    "severity": "SEV2",
+    "summary": "DB connection timeouts, max_connections reached",
+    "timestamp": "2026-07-26T10:20:45.966146",
+    "root_cause": "Connection pool leak in the auth middleware",
+    "fix_steps": [
+      "Restarted user-service pods",
+      "Patched middleware to close idle connections"
+    ],
+    "outcome": "worked",
+    "minutes_to_resolve": 25
+  },
+  {
+    "id": "INC-1989",
+    "service": "user-service",
+    "severity": "SEV2",
+    "summary": "DB connection timeouts, max_connections reached",
+    "timestamp": "2026-08-01T10:20:45.966146",
+    "root_cause": "Connection pool leak in the auth middleware",
+    "fix_steps": [
+      "Restarted user-service pods",
+      "Patched middleware to close idle connections"
+    ],
+    "outcome": "partial",
+    "minutes_to_resolve": 25
+  },
+  {
+    "id": "INC-1720",
+    "service": "payment-gateway",
+    "severity": "SEV1",
+    "summary": "High error rate on /charge endpoint immediately after deploy",
+    "timestamp": "2026-08-14T10:20:45.966146",
+    "root_cause": "Missing environment variable in the new helm chart",
+    "fix_steps": [
+      "Rollback to previous helm release"
+    ],
+    "outcome": "worked",
+    "minutes_to_resolve": 8
+  },
+  {
+    "id": "INC-1721",
+    "service": "payment-gateway",
+    "severity": "SEV1",
+    "summary": "High error rate on /charge endpoint immediately after deploy",
+    "timestamp": "2026-08-25T10:20:45.966146",
+    "root_cause": "Missing environment variable in the new helm chart",
+    "fix_steps": [
+      "Rollback to previous helm release"
+    ],
+    "outcome": "worked",
+    "minutes_to_resolve": 8
+  },
+  {
+    "id": "INC-1500",
+    "service": "log-aggregator",
+    "severity": "SEV3",
+    "summary": "No space left on device for /var/log",
+    "timestamp": "2026-09-08T10:20:45.966146",
+    "root_cause": "Log rotation cron job failed to run",
+    "fix_steps": [
+      "Manually deleted old logs",
+      "Fixed cron permissions"
+    ],
+    "outcome": "worked",
+    "minutes_to_resolve": 45
+  },
+  {
+    "id": "INC-1501",
+    "service": "log-aggregator",
+    "severity": "SEV3",
+    "summary": "No space left on device for /var/log",
+    "timestamp": "2026-09-14T10:20:45.966146",
+    "root_cause": "Log rotation cron job failed to run",
+    "fix_steps": [
+      "Manually deleted old logs",
+      "Fixed cron permissions"
+    ],
+    "outcome": "worked",
+    "minutes_to_resolve": 45
+  },
+  {
+    "id": "INC-1502",
+    "service": "log-aggregator",
+    "severity": "SEV3",
+    "summary": "No space left on device for /var/log",
+    "timestamp": "2026-08-31T10:20:45.966146",
+    "root_cause": "Log rotation cron job failed to run",
+    "fix_steps": [
+      "Manually deleted old logs",
+      "Fixed cron permissions"
+    ],
+    "outcome": "worked",
+    "minutes_to_resolve": 45
+  },
+  {
+    "id": "INC-1400",
+    "service": "api-gateway",
+    "severity": "SEV1",
+    "summary": "Unable to resolve internal service hostnames",
+    "timestamp": "2026-09-17T10:20:45.966146",
+    "root_cause": "CoreDNS pods crashing due to OOM",
+    "fix_steps": [
+      "Increased memory limits for CoreDNS deployment"
+    ],
+    "outcome": "worked",
+    "minutes_to_resolve": 18
+  },
+  {
+    "id": "INC-1401",
+    "service": "api-gateway",
+    "severity": "SEV1",
+    "summary": "Unable to resolve internal service hostnames",
+    "timestamp": "2026-09-18T10:20:45.966146",
+    "root_cause": "CoreDNS pods crashing due to OOM",
+    "fix_steps": [
+      "Increased memory limits for CoreDNS deployment"
+    ],
+    "outcome": "worked",
+    "minutes_to_resolve": 18
+  },
+  {
+    "id": "INC-1300",
+    "service": "ingress-nginx",
+    "severity": "SEV1",
+    "summary": "SSL certificate expired, browsers rejecting connections",
+    "timestamp": "2026-09-20T10:20:45.966146",
+    "root_cause": "cert-manager failed to auto-renew due to rate limits",
+    "fix_steps": [
+      "Manually triggered cert renewal",
+      "Updated rate limit config"
+    ],
+    "outcome": "worked",
+    "minutes_to_resolve": 30
+  },
+  {
+    "id": "INC-1200",
+    "service": "inventory-worker",
+    "severity": "SEV2",
+    "summary": "Worker pods OOMKilled every 4 hours",
+    "timestamp": "2026-09-27T10:20:45.966146",
+    "root_cause": "Unbounded array growth in background job",
+    "fix_steps": [
+      "Restarted pods (temporary)",
+      "Deployed hotfix with bounded array"
+    ],
+    "outcome": "worked",
+    "minutes_to_resolve": 60
+  },
+  {
+    "id": "INC-1201",
+    "service": "inventory-worker",
+    "severity": "SEV2",
+    "summary": "Worker pods OOMKilled every 4 hours",
+    "timestamp": "2026-09-25T10:20:45.966146",
+    "root_cause": "Unbounded array growth in background job",
+    "fix_steps": [
+      "Restarted pods (temporary)",
+      "Deployed hotfix with bounded array"
+    ],
+    "outcome": "worked",
+    "minutes_to_resolve": 60
+  },
+  {
+    "id": "INC-1100",
+    "service": "public-api",
+    "severity": "SEV2",
+    "summary": "Legitimate customers getting 429 Too Many Requests",
+    "timestamp": "2026-09-29T10:20:45.966146",
+    "root_cause": "Rate limit threshold set to 10/min instead of 100/min",
+    "fix_steps": [
+      "Updated rate limit config map and restarted ingress"
+    ],
+    "outcome": "worked",
+    "minutes_to_resolve": 12
+  }
+]
